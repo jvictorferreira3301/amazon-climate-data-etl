@@ -180,6 +180,5 @@ The data used in this project have their own licenses and terms of use:
 * **Climate Data (BR-DWGD / Xavier et al.):** Public domain (Unrestricted academic/scientific use with citation).
 * **Municipal Mesh (IBGE):** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en) (Attribution required).
 
-```
 
-```
+
