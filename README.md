@@ -25,22 +25,28 @@ ETL pipeline for processing gridded climate data (NetCDF) from Xavier v3.2.3 for
 
 
 ```
-
 amazon-climate-data-etl/
 ├── climate_data/
-│   ├── pr_Tmax_Tmin_NetCDF_Files/     # Precipitation and temperatures
-│   └── ETo_u2_RH_Rs_NetCDF_Files/     # Humidity, wind, radiation, ETo
+│   ├── pr_Tmax_Tmin_NetCDF_Files/          # Precipitation and temperatures
+│   └── ETo_u2_RH_Rs_NetCDF_Files/          # Humidity, wind, radiation, ETo
 ├── IBGE_data/
-│   └── BR_Municipios_2022/            # IBGE Municipalities Shapefile
+│   └── BR_Municipios_2022/                 # IBGE Municipalities Shapefile
+├── processed_output_data/
+│   ├── Climate_Amazon_North_2001-2024.csv          # Annual data (all states)
+│   ├── Climate_Amazon_North_Monthly_2001-2024.csv  # Monthly data (all states)
+│   └── by_state/                           # Data split by state (UF)
+│       ├── Climate_AC_Annual_2001-2024.csv
+│       ├── Climate_AC_Monthly_2001-2024.csv
+│       ├── Climate_AM_Annual_2001-2024.csv
+│       ├── ...
+│       └── Climate_TO_Monthly_2001-2024.csv
 ├── scripts/
-│   ├── processar_clima_amazonia.py           # Annual pipeline
-│   ├── processar_clima_amazonia_mensal.py    # Monthly pipeline
-│   ├── separar_por_estado.py                 # Split by State (UF)
-│   ├── Clima_Amazonia_Norte_2001-2024.csv    # Annual result
-│   ├── Clima_Amazonia_Norte_Mensal_2001-2024.csv  # Monthly result
-│   └── por_estado/                           # CSVs per state (AC, AM, AP, PA, RO, RR, TO)
-└── validacao_capitais_norte.ipynb            # Visual validation notebook
-
+│   ├── process_climate_amazon_annual.py    # Annual pipeline
+│   ├── process_climate_amazon_monthly.py   # Monthly pipeline
+│   ├── split_by_state.py                   # Split by State (UF)
+│   └── validation_northern_capitals.ipynb  # Data validation notebook
+├── LICENSE
+└── README.md
 ```
 
 ## 🚀 Usage
