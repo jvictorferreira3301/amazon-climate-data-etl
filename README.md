@@ -160,14 +160,11 @@ See details in the notebook `validacao_capitais_norte.ipynb`.
 * **Spatial scale:** Gridded data represents ~780 km² areas, smoothing local extremes.
 * **Analysis period:** Focus on 2001-2024 (most recent and consistent data).
 * **Missing data:** 2024 NetCDF contains data only up to March 20th.
-* **VPD (Vapor Pressure Deficit):** Calculated from Tmax, Tmin, and RH using:
-- $e_s = 0.6108 \times \exp\left(\frac{17.27 \times T}{T + 237.3}\right)$ (Pressão de vapor de saturação, kPa)
-
-  - $e_a = e_s \times \frac{RH}{100}$ (Pressão de vapor real, kPa)
-
-  - $VPD = e_s - e_a$ (Déficit de pressão de vapor, kPa)
-
-  - Onde $T$ é a temperatura média diária $(T_{max} + T_{min})/2$
+- **VPD (Vapor Pressure Deficit):** Calculated from Tmax, Tmin and RH using:
+  - $e_s = 0.6108 \times \exp\left(\frac{17.27 \times T}{T + 237.3}\right)$ (Saturation vapor pressure, kPa)
+  - $e_a = e_s \times \frac{RH}{100}$ (Actual vapor pressure, kPa)
+  - $VPD = e_s - e_a$ (Vapor pressure deficit, kPa)
+  - Where $T$ is the daily mean temperature $(T_{max} + T_{min})/2$
 
 ## 📄 License
 
