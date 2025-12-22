@@ -1,0 +1,102 @@
+# =============================================================================
+# Dados Climáticos NetCDF 
+# =============================================================================
+dados_climaticos/*.nc
+dados_climaticos/**/*.nc
+dados_climaticos/ETo_u2_RH_Rs_NetCDF_Files/
+dados_climaticos/pr_Tmax_Tmin_NetCDF_Files/
+!dados_climaticos/.gitkeep
+
+# =============================================================================
+# Dados IBGE (Shapefiles)
+# =============================================================================
+dados_ibge/**/*.shp
+dados_ibge/**/*.shx
+dados_ibge/**/*.dbf
+dados_ibge/**/*.prj
+dados_ibge/**/*.cpg
+dados_ibge/BR_Municipios_2022/
+!dados_ibge/.gitkeep
+
+# =============================================================================
+# Arquivos de Saída Temporários (Scripts)
+# =============================================================================
+scripts/*.csv
+scripts/por_estado/
+
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# =============================================================================
+# Ambientes Virtuais
+# =============================================================================
+venv/
+env/
+ENV/
+.venv
+.env
+pip-log.txt
+pip-delete-this-directory.txt
+
+# =============================================================================
+# IDEs e Editores
+# =============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# =============================================================================
+# Jupyter Notebook
+# =============================================================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+.jupyter/
+
+# =============================================================================
+# Arquivos Temporários do Sistema
+# =============================================================================
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# =============================================================================
+# Logs
+# =============================================================================
+*.log
+*.logs
+*.gz
