@@ -27,10 +27,10 @@ ETL pipeline for processing gridded climate data (NetCDF) from Xavier v3.2.3 for
 ```
 
 amazon-climate-data-etl/
-├── dados_climaticos/
+├── climate_data/
 │   ├── pr_Tmax_Tmin_NetCDF_Files/     # Precipitation and temperatures
 │   └── ETo_u2_RH_Rs_NetCDF_Files/     # Humidity, wind, radiation, ETo
-├── dados_ibge/
+├── IBGE_data/
 │   └── BR_Municipios_2022/            # IBGE Municipalities Shapefile
 ├── scripts/
 │   ├── processar_clima_amazonia.py           # Annual pipeline
@@ -85,7 +85,7 @@ The NetCDF files (~8-10 GB) and IBGE shapefile (~500 MB) are too large for GitHu
 
 ```
 amazon-climate-data-etl/
-├── dados_climaticos/
+├── climate_data/
 │   ├── pr_Tmax_Tmin_NetCDF_Files/
 │   │   ├── pr_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
 │   │   ├── Tmax_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
@@ -95,7 +95,7 @@ amazon-climate-data-etl/
 │       ├── RH_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
 │       ├── u2_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
 │       └── Rs_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
-└── dados_ibge/
+└── IBGE_data/
     └── BR_Municipios_2022/
         ├── BR_Municipios_2022.shp
         ├── BR_Municipios_2022.shx
