@@ -7,7 +7,7 @@ ETL pipeline for processing gridded climate data (NetCDF) from Xavier v3.2.3 for
 
 **Source:** BR-DWGD - Brazilian Daily Weather Gridded Data  
 **Version:** 3.2.3 (UFES/UTEXAS)  
-**Period:** 1961-2024 (analysis focused on 2001-2024)  
+**Period:** 1961-2024 (full period processed and available)  
 **Spatial Resolution:** 0.25° × 0.25° (~28 km)  
 **Coverage:** Full Brazil
 
@@ -32,7 +32,10 @@ amazon-climate-data-etl/
 ├── IBGE_data/
 │   └── BR_Municipios_2022/                 # IBGE Municipalities Shapefile
 ├── processed_output_data/
-│   ├── Climate_Amazon_North_2001-2024.csv          # Annual data (all states)
+│   ├── Climate_Amazon_North_1961-1980.csv          # Annual data (1961-1980)
+│   ├── Climate_Amazon_North_1981-2000.csv          # Annual data (1981-2000)
+│   ├── Climate_Amazon_North_2001-2024.csv          # Annual data (2001-2024)
+│   ├── Climate_Amazon_North_1961-2024.csv          # Annual data (all years, concatenated)
 │   ├── Climate_Amazon_North_Monthly_2001-2024.csv  # Monthly data (all states)
 │   └── by_state/                           # Data split by state (UF)
 │       ├── Climate_AC_Annual_2001-2024.csv
@@ -64,8 +67,9 @@ pip install -r requirements.txt
 # 3. Prepare data (see "Original Data" section below)
 # Download and structure files...
 
-# 4. Process data
-python scripts/processar_clima_amazonia.py
+
+# 4. Process annual data (full period)
+python scripts/process_climate_amazon_annual.py
 
 ```
 
@@ -79,7 +83,7 @@ The NetCDF files (~8-10 GB) and IBGE shapefile (~500 MB) are too large for GitHu
 
 1. **Download Xavier v3.2.3 NetCDF data:**
 * Access: https://sites.google.com/site/alexandrecandidoxavierufes/brazilian-daily-weather-gridded-data
-* Select period 2001-2024 and variables: pr, Tmax, Tmin, RH, ETo, u2, Rs
+* Select period and variables: pr, Tmax, Tmin, RH, ETo, u2, Rs
 
 
 2. **Download IBGE Shapefile 2022:**
@@ -108,6 +112,54 @@ amazon-climate-data-etl/
         ├── BR_Municipios_2022.dbf
         ├── BR_Municipios_2022.prj
         └── BR_Municipios_2022.cpg
+
+```
+1. **Download Xavier v3.2.3 NetCDF data:**
+  * Access: https://sites.google.com/site/alexandrecandidoxavierufes/brazilian-daily-weather-gridded-data
+  * Download **todos os períodos** e variáveis:
+    - 1961-1980: pr, Tmax, Tmin, RH, ETo, u2, Rs
+    - 1981-2000: pr, Tmax, Tmin, RH, ETo, u2, Rs
+    - 2001-2024: pr, Tmax, Tmin, RH, ETo, u2, Rs
+
+2. **Download IBGE Shapefile 2022:**
+  * Access: https://www.ibge.gov.br/geociencias/organizacao-do-territorio/malhas-territoriais/15774-malhas.html
+  * Download: Municipal Meshes 2022 (Malhas Municipais 2022)
+
+3. **Structure the directories:**
+
+```
+amazon-climate-data-etl/
+├── climate_data/
+│   ├── pr_Tmax_Tmin_NetCDF_Files/
+│   │   ├── pr_19610101_19801231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│   │   ├── pr_19810101_20001231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│   │   ├── pr_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│   │   ├── Tmax_19610101_19801231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│   │   ├── Tmax_19810101_20001231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│   │   ├── Tmax_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│   │   ├── Tmin_19610101_19801231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│   │   ├── Tmin_19810101_20001231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│   │   ├── Tmin_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│   └── ETo_u2_RH_Rs_NetCDF_Files/
+│       ├── ETo_19610101_19801231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── ETo_19810101_20001231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── ETo_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── RH_19610101_19801231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── RH_19810101_20001231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── RH_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── u2_19610101_19801231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── u2_19810101_20001231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── u2_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── Rs_19610101_19801231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── Rs_19810101_20001231_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+│       ├── Rs_20010101_20240320_BR-DWGD_UFES_UTEXAS_v_3.2.3.nc
+└── IBGE_data/
+   └── BR_Municipios_2022/
+      ├── BR_Municipios_2022.shp
+      ├── BR_Municipios_2022.shx
+      ├── BR_Municipios_2022.dbf
+      ├── BR_Municipios_2022.prj
+      └── BR_Municipios_2022.cpg
 
 ```
 
@@ -164,7 +216,7 @@ See details in the notebook `validacao_capitais_norte.ipynb`.
 ## ⚠️ Considerations
 
 * **Spatial scale:** Gridded data represents ~780 km² areas, smoothing local extremes.
-* **Analysis period:** Focus on 2001-2024 (most recent and consistent data).
+* **Analysis period:** Full period 1961-2024 disponível (dados anuais e agregados).
 * **Missing data:** 2024 NetCDF contains data only up to March 20th.
 - **VPD (Vapor Pressure Deficit):** Calculated from Tmax, Tmin and RH using:
   - $e_s = 0.6108 \times \exp\left(\frac{17.27 \times T}{T + 237.3}\right)$ (Saturation vapor pressure, kPa)
