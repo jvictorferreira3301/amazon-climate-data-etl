@@ -1,22 +1,22 @@
 # =============================================================================
 # Dados Climáticos NetCDF 
 # =============================================================================
-dados_climaticos/*.nc
-dados_climaticos/**/*.nc
-dados_climaticos/ETo_u2_RH_Rs_NetCDF_Files/
-dados_climaticos/pr_Tmax_Tmin_NetCDF_Files/
-!dados_climaticos/.gitkeep
+climate_data/*.nc
+climate_data/**/*.nc
+climate_data/ETo_u2_RH_Rs_NetCDF_Files/
+climate_data/pr_Tmax_Tmin_NetCDF_Files/
+!climate_data/.gitkeep
 
 # =============================================================================
 # Dados IBGE (Shapefiles)
 # =============================================================================
-dados_ibge/**/*.shp
-dados_ibge/**/*.shx
-dados_ibge/**/*.dbf
-dados_ibge/**/*.prj
-dados_ibge/**/*.cpg
-dados_ibge/BR_Municipios_2022/
-!dados_ibge/.gitkeep
+IBGE_data/**/*.shp
+IBGE_data/**/*.shx
+IBGE_data/**/*.dbf
+IBGE_data/**/*.prj
+IBGE_data/**/*.cpg
+IBGE_data/BR_Municipios_2022/
+!IBGE_data/.gitkeep
 
 # =============================================================================
 # Arquivos de Saída Temporários (Scripts)
