@@ -198,20 +198,33 @@ pip install pandas numpy xarray netCDF4 geopandas matplotlib tqdm
 
 ## 🔬 Validation
 
-Data was validated against INMET/Embrapa meteorological stations for the year 2015 (Strong El Niño):
+Data was validated across three periods using official references and known climate events:
 
-* **Belém:** Difference of -16.7% (expected underestimation due to grid resolution)
-* **Manaus:** Difference of +7.9% (excellent agreement for hydrological data)
+### 1961-1980 — INMET Climatological Normals (1961-1990)
 
-See details in the notebook `validacao_capitais_norte.ipynb`.
+Annual precipitation means from the Xavier grid were compared against INMET climatological normals for **Belém** and **Manaus**. Differences are expected due to the non-overlapping periods and the grid's spatial averaging (~0.25°).
+
+### 1981-2000 — Known Extreme Events
+
+* **El Niño 1983 (Belém):** Verified below-average rainfall during one of the strongest El Niño events.
+* **1996 vs 1997 (Manaus):** Confirmed the expected contrast between a La Niña wet year (1996) and the onset of El Niño (1997).
+
+### 2001-2024 — Spot Check (2015, Strong El Niño)
+
+* **Belém:** Difference of -16.7% vs Embrapa/INMET station (expected underestimation due to grid resolution)
+* **Manaus:** Difference of +7.9% vs INMET station (excellent agreement for hydrological data)
+
+See full details in the validation notebook: `processed_output_data/validation_northern_capitals.ipynb`.
 
 ## 📚 References
 
 **Dataset:** Xavier, A. C., King, C. W., & Scanlon, B. R. (2016). *Daily gridded meteorological variables in Brazil (1980–2013)*. International Journal of Climatology, 36(6), 2644-2659.
 
-**Belém Validation:** PACHÊCO, N. A. et al. *Boletim agrometeorológico de 2015 para Belém, PA*. Embrapa, 2022. [Link](https://www.infoteca.cnptia.embrapa.br/infoteca/handle/doc/1148466)
+**Climatological Normals (1961-1990):** INMET. *Normais Climatológicas do Brasil 1961-1990*. Instituto Nacional de Meteorologia, Brasília, 2009.
 
-**Manaus Validation:** SOUZA, D. C.; ALMEIDA, R. A. *Padrões pluviométricos da cidade de Manaus-AM: 1986 a 2015*. Revista Terra Livre, v. 46, p. 157-194, 2016. [Link](https://publicacoes.agb.org.br/boletim-paulista/article/view/1508)
+**Belém Validation (2015):** PACHÊCO, N. A. et al. *Boletim agrometeorológico de 2015 para Belém, PA*. Embrapa, 2022. [Link](https://www.infoteca.cnptia.embrapa.br/infoteca/handle/doc/1148466)
+
+**Manaus Validation (2015):** SOUZA, D. C.; ALMEIDA, R. A. *Padrões pluviométricos da cidade de Manaus-AM: 1986 a 2015*. Revista Terra Livre, v. 46, p. 157-194, 2016. [Link](https://publicacoes.agb.org.br/boletim-paulista/article/view/1508)
 
 ## ⚠️ Considerations
 
