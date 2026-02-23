@@ -218,7 +218,7 @@ See full details in the validation notebook: `processed_output_data/validation_n
 
 ## 📚 References
 
-**Dataset:** Xavier, A. C., King, C. W., & Scanlon, B. R. (2016). *Daily gridded meteorological variables in Brazil (1980–2013)*. International Journal of Climatology, 36(6), 2644-2659.
+**Dataset:** Xavier, A. C., Scanlon, B. R., King, C. W., & Alves, A. I. (2022). New improved Brazilian daily weather gridded data (1961–2020). International Journal of Climatology, 42(16), 8390– 8404. https://doi.org/10.1002/joc.7731
 
 **Climatological Normals (1961-1990):** INMET. *Normais Climatológicas do Brasil 1961-1990*. Instituto Nacional de Meteorologia, Brasília, 2009.
 
